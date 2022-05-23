@@ -79,10 +79,13 @@ const theme = createTheme({
       },
     },
     // This is the style for the nav text
-    body2: {
+    navText: {
       fontSize: '1rem',
       fontFamily: bodyFont,
       letterSpacing: '2.7px',
+      textTransform: 'uppercase',
+      fontWeight: '300',
+
       '@media (min-width: 600px) and (max-width: 999px)': {
         fontSize: '0.875rem',
         letterSpacing: '2.36px',
