@@ -1,5 +1,6 @@
 import { List, ListItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import Link from 'next/link';
 
 const Navbar = () => {
   const navItems = ['home', 'destination', 'crew', 'technology'];
@@ -8,12 +9,16 @@ const Navbar = () => {
     <List sx={styledLinks}>
       {navItems.map((item, index) => (
         <ListItem key={item}>
-          <Typography variant='navText'>
-            <Box component='span' sx={styledNavNumber}>
-              0{index}
-            </Box>
-            {item}
-          </Typography>
+          <Link href={`/${item}`}>
+            <a>
+              <Typography variant='navText'>
+                <Box component='span' sx={styledNavNumber}>
+                  0{index}
+                </Box>
+                {item}
+              </Typography>
+            </a>
+          </Link>
         </ListItem>
       ))}
     </List>

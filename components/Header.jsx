@@ -1,5 +1,6 @@
 import { Box } from '@mui/system';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import logo from '/public/assets/shared/logo.svg';
@@ -19,31 +20,20 @@ const Header = () => {
   const mediaMobile = useMediaQuery('(max-width: 599px)');
 
   return (
-    <Box
-      sx={{
-        width: 1,
-        bgcolor: 'transparent',
-        display: 'flex',
-        justifyContent: 'space-between',
-        mb: 3,
-      }}
-    >
-      <Box
-        sx={{
-          bgcolor: 'neutral.light',
-          width: '2rem',
-          height: '2rem',
-          borderRadius: '50%',
-        }}
-      >
-        <Image
-          src={logo}
-          layout='intrinsic'
-          objectFit='cover'
-          objectPosition='center'
-          alt='logo'
-        />
-      </Box>
+    <Box sx={styledHeader}>
+      <Link href='/'>
+        <a>
+          <Box sx={styledLogo}>
+            <Image
+              src={logo}
+              layout='intrinsic'
+              objectFit='cover'
+              objectPosition='center'
+              alt='logo'
+            />
+          </Box>
+        </a>
+      </Link>
 
       {mediaMobile ? (
         <>
@@ -82,6 +72,21 @@ const Header = () => {
 };
 
 export default Header;
+
+const styledHeader = {
+  width: 1,
+  bgcolor: 'transparent',
+  display: 'flex',
+  justifyContent: 'space-between',
+  mb: 3,
+};
+
+const styledLogo = {
+  bgcolor: 'neutral.light',
+  width: '2rem',
+  height: '2rem',
+  borderRadius: '50%',
+};
 
 const styledDrawer = ({ palette }) => ({
   '& .MuiBackdrop-root': {
