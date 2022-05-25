@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 import Header from './Header';
 
-const Layout = ({ children, title, description }) => {
+const Layout = ({ children, title, pageBackground, description }) => {
   return (
     <Box sx={{ position: 'relative' }}>
       <Head>
@@ -22,10 +22,13 @@ const Layout = ({ children, title, description }) => {
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
 
-      <Header />
+      <Container
+        disableGutters
+        sx={{ background: pageBackground, minHeight: '100vh', p: 3 }}
+      >
+        <Header />
 
-      <Container component='main' disableGutters>
-        {children}
+        <Box component='main'>{children}</Box>
       </Container>
     </Box>
   );

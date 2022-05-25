@@ -71,6 +71,8 @@ const theme = createTheme({
     // This is the style for all paragraph text
     body1: {
       fontSize: '15px',
+      lineHeight: '1.67',
+
       '@media (min-width: 600px)': {
         fontSize: '1rem',
       },
@@ -92,6 +94,7 @@ const theme = createTheme({
       },
     },
     fontFamily: bodyFont,
+    // color: ' '
   },
 
   //   colors
@@ -100,7 +103,7 @@ const theme = createTheme({
       main: 'hsl(231, 77%, 90%)',
     },
     neutral: {
-      main: 'hsl(0,0%, 50%)',
+      main: 'hsl(0,0%, 59%)',
       light: 'hsl(0,0%,100%)',
       dark: 'hsl(230,35%, 7%)',
     },

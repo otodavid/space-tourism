@@ -25,19 +25,36 @@ const Header = () => {
         bgcolor: 'transparent',
         display: 'flex',
         justifyContent: 'space-between',
-        position: 'absolute',
-        mb: 5,
+        mb: 3,
       }}
     >
-      <Box sx={{ bgcolor: 'neutral.light' }}>
-        <Image src={logo} width={20} height={20} alt='logo' />
+      <Box
+        sx={{
+          bgcolor: 'neutral.light',
+          width: '2rem',
+          height: '2rem',
+          borderRadius: '50%',
+        }}
+      >
+        <Image
+          src={logo}
+          layout='intrinsic'
+          objectFit='cover'
+          objectPosition='center'
+          alt='logo'
+        />
       </Box>
 
       {mediaMobile ? (
         <>
-          <Button variant='text' onClick={openDrawer}>
-            <Image src={menuIcon} width={20} height={20} alt='hamburger icon' />
-          </Button>
+          <IconButton
+            aria-label='Hamburger button'
+            component='button'
+            onClick={openDrawer}
+            sx={{ minWidth: 'max-content', p: 0 }}
+          >
+            <Image src={menuIcon} alt='hamburger icon' />
+          </IconButton>
 
           <Drawer
             anchor='right'
@@ -77,6 +94,10 @@ const styledDrawer = ({ palette }) => ({
     bgcolor: palette.neutral.dark,
     color: palette.neutral.light,
     p: 2,
+
+    '&::backdrop': {
+      bgcolor: 'red',
+    },
 
     '@supports (backdrop-filter: blur())': {
       bgcolor: 'transparent',
