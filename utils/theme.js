@@ -71,6 +71,8 @@ const theme = createTheme({
     // This is the style for all paragraph text
     body1: {
       fontSize: '15px',
+      lineHeight: '1.67',
+
       '@media (min-width: 600px)': {
         fontSize: '1rem',
       },
@@ -79,16 +81,20 @@ const theme = createTheme({
       },
     },
     // This is the style for the nav text
-    body2: {
+    navText: {
       fontSize: '1rem',
       fontFamily: bodyFont,
       letterSpacing: '2.7px',
+      textTransform: 'uppercase',
+      fontWeight: '300',
+
       '@media (min-width: 600px) and (max-width: 999px)': {
         fontSize: '0.875rem',
         letterSpacing: '2.36px',
       },
     },
     fontFamily: bodyFont,
+    // color: ' '
   },
 
   //   colors
@@ -97,7 +103,7 @@ const theme = createTheme({
       main: 'hsl(231, 77%, 90%)',
     },
     neutral: {
-      main: 'hsl(0,0%, 50%)',
+      main: 'hsl(0,0%, 59%)',
       light: 'hsl(0,0%,100%)',
       dark: 'hsl(230,35%, 7%)',
     },
