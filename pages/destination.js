@@ -15,10 +15,7 @@ export default function Destination() {
   };
 
   return (
-    <Layout
-      title='Destination'
-      pageBackground='url(assets/destination/background-destination-mobile.jpg) center center / 100% 100% no-repeat'
-    >
+    <Layout title='Destination' sx={styledLayout}>
       <Box>
         <Box sx={{ mx: 'auto' }}>
           <Typography
@@ -97,6 +94,11 @@ export default function Destination() {
     </Layout>
   );
 }
+
+const styledLayout = {
+  background:
+    'url(assets/destination/background-destination-mobile.jpg) center center / 100% 100% no-repeat',
+};
 
 const styledNumber = {
   fontWeight: '700',

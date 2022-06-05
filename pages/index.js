@@ -7,10 +7,7 @@ import { Box } from '@mui/system';
 
 export default function Home() {
   return (
-    <Layout
-      title='Space Travel | Homepage'
-      pageBackground='url(assets/home/background-home-mobile.jpg) center center / 100% 100% no-repeat'
-    >
+    <Layout title='Space Travel | Homepage' sx={styledLayout}>
       <Box>
         <Box sx={{ w: 1, mx: 'auto', textAlign: 'center' }}>
           <Typography
@@ -45,6 +42,11 @@ export default function Home() {
     </Layout>
   );
 }
+
+const styledLayout = {
+  background:
+    'url(assets/home/background-home-mobile.jpg) center center / 100% 100% no-repeat',
+};
 
 const styledButtonWrapper = ({ palette }) => ({
   display: 'flex',
