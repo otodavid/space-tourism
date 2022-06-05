@@ -5,11 +5,16 @@ import Link from 'next/link';
 const Navbar = () => {
   const navItems = ['home', 'destination', 'crew', 'technology'];
 
+  const activeLink = (link) => {
+    if (link === 'home') return '';
+    return link;
+  };
+
   return (
     <List sx={styledLinks}>
       {navItems.map((item, index) => (
         <ListItem key={item}>
-          <Link href={`/${item}`}>
+          <Link href={`/${activeLink(item)}`}>
             <a>
               <Typography variant='navText'>
                 <Box component='span' sx={styledNavNumber}>

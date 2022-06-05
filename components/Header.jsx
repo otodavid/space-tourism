@@ -7,7 +7,6 @@ import logo from '/public/assets/shared/logo.svg';
 import menuIcon from '/public/assets/shared/icon-hamburger.svg';
 import { Button, IconButton, useMediaQuery } from '@mui/material';
 import Navbar from './Navbar';
-import SideMenu from './SideMenu';
 import { List, ListItem } from '@mui/material';
 import { Close } from '@mui/icons-material';
 

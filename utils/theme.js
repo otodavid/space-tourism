@@ -61,12 +61,15 @@ const theme = createTheme({
       },
     },
     subtitle1: {
+      fontFamily: headingFont,
       fontSize: '1.75rem',
+      textTransform: 'uppercase',
     },
     subtitle2: {
       fontSize: '0.875rem',
       fontFamily: bodyFont,
       letterSpacing: '2.36px',
+      textTransform: 'uppercase',
     },
     // This is the style for all paragraph text
     body1: {
