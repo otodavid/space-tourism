@@ -6,39 +6,28 @@ import { Tab, Tabs } from '@mui/material';
 import data from '../data.json';
 import CustomImage from '../components/CustomImage';
 import TabPanel, { a11yProps } from '../components/TabPanel';
+import HeadlineText from '../components/HeadlineText';
 
 export default function Destination() {
   const [value, setValue] = useState(0);
 
-  const handleChange = (newValue) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
     <Layout title='Destination' sx={styledLayout}>
       <Box>
-        <Box sx={{ mx: 'auto' }}>
-          <Typography
-            variant='navText'
-            component='p'
-            align='center'
-            sx={{ pt: 1, pb: 4 }}
-          >
-            <Box component='span' sx={styledNumber}>
-              01
-            </Box>
-            pick your destination
-          </Typography>
+        <HeadlineText pageId='01' heroText='pick your destination' />
 
-          <Box sx={{ width: '70%', mx: 'auto' }}>
-            {data.destinations.map((data, index) => (
-              <TabPanel key={data.name} value={value} index={index}>
-                <Box sx={{ width: '90%', mx: 'auto' }}>
-                  <CustomImage src={data.images.png} alt={data.name} />
-                </Box>
-              </TabPanel>
-            ))}
-          </Box>
+        <Box sx={{ width: '70%', mx: 'auto' }}>
+          {data.destinations.map((data, index) => (
+            <TabPanel key={data.name} value={value} index={index}>
+              <Box>
+                <CustomImage src={data.images.png} alt={data.name} />
+              </Box>
+            </TabPanel>
+          ))}
         </Box>
 
         <Tabs
@@ -61,7 +50,7 @@ export default function Destination() {
         {data.destinations.map((data, index) => (
           <TabPanel key={data.name} value={value} index={index}>
             <Typography variant='h2'>{data.name}</Typography>
-            <Typography variant='body1' align='centers'>
+            <Typography variant='body1' align='center'>
               {data.description}
             </Typography>
           </TabPanel>
@@ -98,12 +87,6 @@ export default function Destination() {
 const styledLayout = {
   background:
     'url(assets/destination/background-destination-mobile.jpg) center center / 100% 100% no-repeat',
-};
-
-const styledNumber = {
-  fontWeight: '700',
-  mr: 1,
-  color: 'hsla(0,0%,100%, .25)',
 };
 
 const styledTabs = (theme) => ({

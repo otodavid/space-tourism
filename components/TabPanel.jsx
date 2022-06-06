@@ -13,7 +13,7 @@ const TabPanel = (props) => {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 1, textAlign: 'center' }}>{children}</Box>
+        <Box sx={{ textAlign: 'center' }}>{children}</Box>
       )}
     </div>
   );

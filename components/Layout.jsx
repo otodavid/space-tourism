@@ -5,7 +5,6 @@ import React from 'react';
 import Header from './Header';
 
 const Layout = ({ children, title, sx, description }) => {
-  console.log(sx);
   return (
     <Box sx={{ position: 'relative' }}>
       <Head>

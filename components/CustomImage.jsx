@@ -7,12 +7,12 @@ const CustomImage = ({ src, alt }) => {
     <Box sx={styledImage}>
       <Image
         src={src}
+        alt={alt}
         width={200}
         height={200}
-        alt={alt}
-        objectFit='cover'
-        objectPosition='center center'
         layout='responsive'
+        objectFit='contain'
+        objectPosition='center center'
       />
     </Box>
   );
@@ -21,7 +21,7 @@ const CustomImage = ({ src, alt }) => {
 export default CustomImage;
 
 const styledImage = {
-  postion: 'relative',
+  width: '100%',
+  minHeight: '200px',
   overflow: 'hidden',
-  inset: 0,
 };
