@@ -45,7 +45,7 @@ export default function Home() {
 
 const styledLayout = {
   background:
-    'url(assets/home/background-home-mobile.jpg) center center / 100% 100% no-repeat',
+    'url(assets/home/background-home-tablet.jpg) center center / 100% 100% no-repeat',
 };
 
 const styledButtonWrapper = ({ palette }) => ({
