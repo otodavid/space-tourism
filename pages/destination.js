@@ -90,7 +90,7 @@ export default function Destination() {
 
 const styledLayout = {
   background:
-    'url(assets/destination/background-destination-mobile.jpg) center center / 100% 100% no-repeat',
+    'url(assets/destination/background-destination-tablet.jpg) center / cover no-repeat',
 };
 
 const styledTabs = (theme) => ({

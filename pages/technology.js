@@ -86,7 +86,7 @@ export default function Technology() {
 
 const styledLayout = {
   background:
-    'url(assets/technology/background-technology-mobile.jpg) center center / 100% 100% no-repeat',
+    'url(assets/technology/background-technology-tablet.jpg) center / cover no-repeat',
 };
 
 const styledTabs = (theme) => ({

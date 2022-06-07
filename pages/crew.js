@@ -90,7 +90,7 @@ export default function Crew() {
 
 const styledLayout = {
   background:
-    'url(assets/crew/background-crew-mobile.jpg) center / cover no-repeat',
+    'url(assets/crew/background-crew-tablet.jpg) center / cover no-repeat',
 };
 
 const styledControlWrapper = (theme) => ({
