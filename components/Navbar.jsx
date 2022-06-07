@@ -1,12 +1,14 @@
 import { List, ListItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
-const Navbar = () => {
+const Navbar = ({ closeDrawer }) => {
   const navItems = ['home', 'destination', 'crew', 'technology'];
 
   const activeLink = (link) => {
     if (link === 'home') return '';
+
     return link;
   };
 
@@ -15,7 +17,7 @@ const Navbar = () => {
       {navItems.map((item, index) => (
         <ListItem key={item}>
           <Link href={`/${activeLink(item)}`}>
-            <a>
+            <a onClick={() => closeDrawer()}>
               <Typography variant='navText'>
                 <Box component='span' sx={styledNavNumber}>
                   0{index}

@@ -50,7 +50,7 @@ export default function Destination() {
         {data.destinations.map((data, index) => (
           <TabPanel key={data.name} value={value} index={index}>
             <Typography variant='h2'>{data.name}</Typography>
-            <Typography variant='body1' align='center'>
+            <Typography variant='body1' align='center' color='primary.main'>
               {data.description}
             </Typography>
           </TabPanel>
@@ -68,12 +68,16 @@ export default function Destination() {
               }}
             >
               <Box>
-                <Typography variant='subtitle2'>avg. distance</Typography>
+                <Typography variant='subtitle2' color='primary.main'>
+                  avg. distance
+                </Typography>
                 <Typography variant='subtitle1'>{data.distance}</Typography>
               </Box>
 
               <Box sx={{ mt: 3 }}>
-                <Typography variant='subtitle2'>est. travel time</Typography>
+                <Typography variant='subtitle2' color='primary.main'>
+                  est. travel time
+                </Typography>
                 <Typography variant='subtitle1'>{data.travel}</Typography>
               </Box>
             </Box>
@@ -92,17 +96,24 @@ const styledLayout = {
 const styledTabs = (theme) => ({
   width: '80%',
   mx: 'auto',
-  my: 2,
+  mt: 2,
+  mb: 1,
 
   '& .MuiTabs-indicator': {
     display: 'block',
     width: '1.5rem !important',
     ml: '17px',
-    bottom: ".5rem",
+    bottom: '.5rem',
+    bgcolor: theme.palette.neutral.light,
   },
 });
 
 const styledSingleTab = (theme) => ({
-  color: theme.palette.neutral.light,
+  color: theme.palette.primary.main,
   minWidth: '0',
+
+  '&.Mui-selected': {
+    color: theme.palette.neutral.light,
+    // bgcolor: theme.palette.neutral.light,
+  },
 });

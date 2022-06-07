@@ -20,7 +20,7 @@ export default function Crew() {
       <Box sx={{ px: 3 }}>
         <HeadlineText pageId='02' text='meet your crew' />
 
-        <Box sx={{ width: '70%', mx: 'auto' }}>
+        <Box sx={{ width: '70%', mx: 'auto', pt: 2 }}>
           {data.crew.map((data, index) => (
             <TabPanel key={data.name} value={value} index={index} sx={{ p: 0 }}>
               <Box
@@ -49,14 +49,14 @@ export default function Crew() {
         <Tabs
           value={value}
           onChange={handleChange}
-          sx={styledTabs}
-          aria-label='destination tabs'
+          sx={styledControlWrapper}
+          aria-label='crew tabs'
         >
           {data.destinations.map((data, index) => (
             <Tab
               key={data.name}
               label=''
-              sx={styledSingleTab}
+              sx={styledTabControl}
               {...a11yProps(index)}
               disableRipple
             />
@@ -72,7 +72,12 @@ export default function Crew() {
               <Typography variant='h3' align='center' sx={{ my: '.3em' }}>
                 {data.name}
               </Typography>
-              <Typography variant='body1' align='center' sx={{ mt: '.8em' }}>
+              <Typography
+                variant='body1'
+                color='primary.main'
+                align='center'
+                sx={{ mt: '.8em' }}
+              >
                 {data.bio}
               </Typography>
             </TabPanel>
@@ -85,10 +90,10 @@ export default function Crew() {
 
 const styledLayout = {
   background:
-    'url(assets/crew/background-crew-mobile.jpg) top left / cover no-repeat',
+    'url(assets/crew/background-crew-mobile.jpg) center / cover no-repeat',
 };
 
-const styledTabs = (theme) => ({
+const styledControlWrapper = (theme) => ({
   width: '80%',
   mx: 'auto',
   my: 4,
@@ -104,7 +109,7 @@ const styledTabs = (theme) => ({
   },
 });
 
-const styledSingleTab = (theme) => ({
+const styledTabControl = (theme) => ({
   minWidth: '0',
   color: 'hsla(0,0%,100%,.17)',
   bgcolor: 'hsla(0,0%,100%,.17)',

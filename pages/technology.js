@@ -46,13 +46,13 @@ export default function Technology() {
           value={value}
           onChange={handleChange}
           sx={styledTabs}
-          aria-label='destination tabs'
+          aria-label='technology tabs'
         >
           {data.technology.map((data, index) => (
             <Tab
               key={data.name}
               label={index + 1}
-              sx={styledSingleTab}
+              sx={styledTabControl}
               {...a11yProps(index)}
               disableRipple
             />
@@ -68,7 +68,12 @@ export default function Technology() {
               <Typography variant='h3' align='center' sx={{ my: '.3em' }}>
                 {data.name}
               </Typography>
-              <Typography variant='body1' align='center' sx={{ mt: '.8em' }}>
+              <Typography
+                variant='body1'
+                align='center'
+                color='primary.main'
+                sx={{ mt: '.8em' }}
+              >
                 {data.description}
               </Typography>
             </TabPanel>
@@ -101,7 +106,7 @@ const styledTabs = (theme) => ({
   },
 });
 
-const styledSingleTab = (theme) => ({
+const styledTabControl = (theme) => ({
   width: '40px',
   height: '40px',
   minWidth: '0',

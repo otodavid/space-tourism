@@ -50,6 +50,7 @@ const Header = () => {
             open={drawerStatus}
             onClose={closeDrawer}
             sx={styledDrawer}
+            hideBackdrop={true}
           >
             <IconButton
               aria-label='Close button'
@@ -60,11 +61,11 @@ const Header = () => {
               <Close sx={{ color: 'neutral.light', fontSize: '1.5rem' }} />
             </IconButton>
 
-            <Navbar />
+            <Navbar closeDrawer={closeDrawer} />
           </Drawer>
         </>
       ) : (
-        <Navbar />
+        <Navbar closeDrawer={closeDrawer} />
       )}
     </Box>
   );
@@ -89,20 +90,12 @@ const styledLogo = {
 };
 
 const styledDrawer = ({ palette }) => ({
-  '& .MuiBackdrop-root': {
-    bgcolor: 'transparent',
-  },
-
   '& .MuiDrawer-paper': {
     width: 'clamp(10rem, 65vw + 1rem, 30rem)',
     display: 'block',
     bgcolor: palette.neutral.dark,
     color: palette.neutral.light,
     p: 2,
-
-    '&::backdrop': {
-      bgcolor: 'red',
-    },
 
     '@supports (backdrop-filter: blur())': {
       bgcolor: 'transparent',

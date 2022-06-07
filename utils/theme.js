@@ -97,7 +97,6 @@ const theme = createTheme({
       },
     },
     fontFamily: bodyFont,
-    // color: ' '
   },
 
   //   colors
