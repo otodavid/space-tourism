@@ -77,7 +77,8 @@ const styledHeader = {
   bgcolor: 'transparent',
   display: 'flex',
   justifyContent: 'space-between',
-  mb: 3,
+  mb: 2,
+  p: 3,
 };
 
 const styledLogo = {

@@ -1,22 +1,20 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import CustomImage from './CustomImage';
-import TabPanel from './TabPanel';
 
-const HeadlineText = ({ pageId, heroText}) => {
+const HeadlineText = ({ pageId, text}) => {
   return (
     <Box sx={{ mx: 'auto' }}>
       <Typography
         variant='navText'
         component='p'
         align='center'
-        sx={{ pt: 1, pb: 4 }}
+        sx={{ pb: 4 }}
       >
         <Box component='span' sx={styledNumber}>
           {pageId}
         </Box>
-        {heroText}
+        {text}
       </Typography>
 
     </Box>

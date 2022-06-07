@@ -8,7 +8,7 @@ import { Box } from '@mui/system';
 export default function Home() {
   return (
     <Layout title='Space Travel | Homepage' sx={styledLayout}>
-      <Box>
+      <Box sx={{px: 3}}>
         <Box sx={{ w: 1, mx: 'auto', textAlign: 'center' }}>
           <Typography
             variant='h5'

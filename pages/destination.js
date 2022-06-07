@@ -17,8 +17,8 @@ export default function Destination() {
 
   return (
     <Layout title='Destination' sx={styledLayout}>
-      <Box>
-        <HeadlineText pageId='01' heroText='pick your destination' />
+      <Box sx={{ px: 3 }}>
+        <HeadlineText pageId='01' text='pick your destination' />
 
         <Box sx={{ width: '70%', mx: 'auto' }}>
           {data.destinations.map((data, index) => (
@@ -62,8 +62,8 @@ export default function Destination() {
               sx={{
                 borderTop: 1,
                 borderColor: '#383B4B',
-                mt: 2,
-                pt: 4,
+                mt: 3,
+                pt: 3,
                 pb: 2,
               }}
             >
@@ -96,8 +96,9 @@ const styledTabs = (theme) => ({
 
   '& .MuiTabs-indicator': {
     display: 'block',
-    width: '25px !important',
+    width: '1.5rem !important',
     ml: '17px',
+    bottom: ".5rem",
   },
 });
 
