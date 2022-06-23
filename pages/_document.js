@@ -5,15 +5,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta name='theme-color' content={theme.palette.primary.dark} />
-        <meta name='viewport' content='initial-scale=1, width=device-width' />
-        <link rel='shortcut icon' href='/static/favicon.ico' />
+        <meta name='theme-color' content={theme.palette.neutral.dark} />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link
-          rel='preconnect'
-          href='https://fonts.gstatic.com'
-          crossOrigin={true}
-        />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
         <link
           href='https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@300;400;700&family=Bellefair&display=swap'
           rel='stylesheet'
