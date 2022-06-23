@@ -6,17 +6,11 @@ import { useEffect, useRef } from 'react';
 const Navbar = ({ closeDrawer }) => {
   const navItems = ['home', 'destination', 'crew', 'technology'];
 
-  const activeLink = (link) => {
-    if (link === 'home') return '';
-
-    return link;
-  };
-
   return (
     <List sx={styledLinks}>
       {navItems.map((item, index) => (
         <ListItem key={item}>
-          <Link href={`/${activeLink(item)}`}>
+          <Link href={item === 'home' ? '/' : item}>
             <a onClick={() => closeDrawer()}>
               <Typography variant='navText'>
                 <Box component='span' sx={styledNavNumber}>
@@ -34,11 +28,16 @@ const Navbar = ({ closeDrawer }) => {
 
 export default Navbar;
 
-const styledLinks = {
+const styledLinks = (theme) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '1rem',
-};
+
+  '& a': {
+    color: theme.palette.neutral.light,
+    textDecoration: 'none',
+  },
+});
 
 const styledNavNumber = {
   fontWeight: '700',

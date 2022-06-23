@@ -1,9 +1,13 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import theme from '../utils/theme';
 
 export default function Document() {
   return (
     <Html>
       <Head>
+        <meta name='theme-color' content={theme.palette.primary.dark} />
+        <meta name='viewport' content='initial-scale=1, width=device-width' />
+        <link rel='shortcut icon' href='/static/favicon.ico' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link
           rel='preconnect'
@@ -11,7 +15,7 @@ export default function Document() {
           crossOrigin={true}
         />
         <link
-          href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&family=Bellefair&display=swap'
+          href='https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@300;400;700&family=Bellefair&display=swap'
           rel='stylesheet'
         />
       </Head>

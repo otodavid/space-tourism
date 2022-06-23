@@ -69,7 +69,10 @@ export default function Crew() {
               <Typography variant='h4' sx={{ color: 'hsla(0,0%,100%, .5)' }}>
                 {data.role}
               </Typography>
-              <Typography variant='h3' align='center' sx={{ my: '.3em' }}>
+              <Typography
+                variant='h3'
+                sx={{ my: '.3em', color: 'neutral.light', align: 'center' }}
+              >
                 {data.name}
               </Typography>
               <Typography

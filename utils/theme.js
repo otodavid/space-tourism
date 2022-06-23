@@ -1,7 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
-const headingFont = ['Bellefair', 'serif'].join(',');
-const bodyFont = ['Barlow Condensed', 'sans-serif'].join(',');
+const headingFont1 = ['Bellefair', 'serif'].join(',');
+const headingFont2 = ['Barlow Condensed', 'sans-serif'].join(',');
+const bodyFont = ['Barlow', 'sans-serif'].join(',');
 
 const theme = createTheme({
   typography: {
@@ -9,7 +10,9 @@ const theme = createTheme({
 
     h1: {
       fontSize: '5rem',
-      fontFamily: headingFont,
+      fontFamily: headingFont1,
+      textTransform: 'uppercase',
+
       '@media (min-width: 600px)': {
         fontSize: '7.5rem',
       },
@@ -19,7 +22,8 @@ const theme = createTheme({
     },
     h2: {
       fontSize: '3.5rem',
-      fontFamily: headingFont,
+      fontFamily: headingFont1,
+      textTransform: 'uppercase',
       '@media (min-width: 600px)': {
         fontSize: '5rem',
       },
@@ -29,7 +33,8 @@ const theme = createTheme({
     },
     h3: {
       fontSize: '1.5rem',
-      fontFamily: headingFont,
+      fontFamily: headingFont1,
+      textTransform: 'uppercase',
       '@media (min-width: 600px)': {
         fontSize: '2.5rem',
       },
@@ -39,7 +44,8 @@ const theme = createTheme({
     },
     h4: {
       fontSize: '1rem',
-      fontFamily: headingFont,
+      fontFamily: headingFont1,
+      textTransform: 'uppercase',
       '@media (min-width: 600px)': {
         fontSize: '1.5rem',
       },
@@ -49,8 +55,10 @@ const theme = createTheme({
     },
     h5: {
       fontSize: '1rem',
-      fontFamily: bodyFont,
+      fontFamily: headingFont2,
       letterSpacing: '2.7px',
+      textTransform: 'uppercase',
+
       '@media (min-width: 600px)': {
         fontSize: '1.25rem',
         letterSpacing: '3.38px',
@@ -61,13 +69,13 @@ const theme = createTheme({
       },
     },
     subtitle1: {
-      fontFamily: headingFont,
+      fontFamily: headingFont1,
       fontSize: '1.75rem',
       textTransform: 'uppercase',
     },
     subtitle2: {
       fontSize: '0.875rem',
-      fontFamily: bodyFont,
+      fontFamily: headingFont2,
       letterSpacing: '2.36px',
       textTransform: 'uppercase',
     },
@@ -86,7 +94,7 @@ const theme = createTheme({
     // This is the style for the nav text
     navText: {
       fontSize: '1rem',
-      fontFamily: bodyFont,
+      fontFamily: headingFont2,
       letterSpacing: '2.7px',
       textTransform: 'uppercase',
       fontWeight: '300',

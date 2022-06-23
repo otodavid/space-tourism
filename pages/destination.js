@@ -35,6 +35,7 @@ export default function Destination() {
           onChange={handleChange}
           sx={styledTabs}
           aria-label='destination tabs'
+          className='tabs'
         >
           {data.destinations.map((data, index) => (
             <Tab
@@ -49,7 +50,9 @@ export default function Destination() {
 
         {data.destinations.map((data, index) => (
           <TabPanel key={data.name} value={value} index={index}>
-            <Typography variant='h2'>{data.name}</Typography>
+            <Typography variant='h2' color='neutral.light'>
+              {data.name}
+            </Typography>
             <Typography variant='body1' align='center' color='primary.main'>
               {data.description}
             </Typography>
@@ -62,8 +65,8 @@ export default function Destination() {
               sx={{
                 borderTop: 1,
                 borderColor: '#383B4B',
-                mt: 3,
-                pt: 3,
+                mt: 4,
+                pt: 4,
                 pb: 2,
               }}
             >
@@ -71,14 +74,18 @@ export default function Destination() {
                 <Typography variant='subtitle2' color='primary.main'>
                   avg. distance
                 </Typography>
-                <Typography variant='subtitle1'>{data.distance}</Typography>
+                <Typography variant='subtitle1' color='neutral.light'>
+                  {data.distance}
+                </Typography>
               </Box>
 
               <Box sx={{ mt: 3 }}>
                 <Typography variant='subtitle2' color='primary.main'>
                   est. travel time
                 </Typography>
-                <Typography variant='subtitle1'>{data.travel}</Typography>
+                <Typography variant='subtitle1' color='neutral.light'>
+                  {data.travel}
+                </Typography>
               </Box>
             </Box>
           </TabPanel>
@@ -94,15 +101,15 @@ const styledLayout = {
 };
 
 const styledTabs = (theme) => ({
-  width: '80%',
+  width: '83%',
   mx: 'auto',
   mt: 2,
   mb: 1,
 
-  '& .MuiTabs-indicator': {
+  '&.tabs .MuiTabs-indicator': {
     display: 'block',
-    width: '1.5rem !important',
-    ml: '17px',
+    width: '2.15rem !important',
+    ml: '16px',
     bottom: '.5rem',
     bgcolor: theme.palette.neutral.light,
   },
@@ -110,10 +117,12 @@ const styledTabs = (theme) => ({
 
 const styledSingleTab = (theme) => ({
   color: theme.palette.primary.main,
+  fontFamily: theme.typography.navText,
+  fontSize: '.875rem',
+  letterSpacing: '2.36px',
   minWidth: '0',
 
   '&.Mui-selected': {
     color: theme.palette.neutral.light,
-    // bgcolor: theme.palette.neutral.light,
   },
 });

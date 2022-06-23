@@ -65,7 +65,11 @@ export default function Technology() {
               <Typography variant='navText' sx={{ color: 'primary.main' }}>
                 the terminology...
               </Typography>
-              <Typography variant='h3' align='center' sx={{ my: '.3em' }}>
+              <Typography
+                variant='h3'
+                align='center'
+                sx={{ my: '.3em', color: 'neutral.light' }}
+              >
                 {data.name}
               </Typography>
               <Typography

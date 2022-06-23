@@ -8,7 +8,7 @@ import { Box } from '@mui/system';
 export default function Home() {
   return (
     <Layout title='Space Travel | Homepage' sx={styledLayout}>
-      <Box sx={{px: 3}}>
+      <Box sx={{ px: 2 }}>
         <Box sx={{ w: 1, mx: 'auto', textAlign: 'center' }}>
           <Typography
             variant='h5'
@@ -18,7 +18,7 @@ export default function Home() {
           >
             so you want to travel to
           </Typography>
-          <Typography variant='h1' textTransform='uppercase' sx={{ my: 1.8 }}>
+          <Typography variant='h1' sx={{ my: 1.8, color: 'neutral.light' }}>
             space
           </Typography>
           <Typography variant='body1' color='primary.main'>
@@ -28,7 +28,7 @@ export default function Home() {
             world experience!
           </Typography>
         </Box>
-        <Box sx={styledButtonWrapper}>
+        <Box sx={styledButtonWrapper} className={styles.heading}>
           <Button
             variant='contained'
             sx={styledExploreButton}

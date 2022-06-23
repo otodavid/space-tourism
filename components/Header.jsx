@@ -16,7 +16,7 @@ const Header = () => {
   const openDrawer = () => setDrawerStatus(true);
   const closeDrawer = () => setDrawerStatus(false);
 
-  const mediaMobile = useMediaQuery('(max-width: 599px)');
+  // const mediaMobile = useMediaQuery('(max-width: 599px)');
 
   return (
     <Box sx={styledHeader}>
@@ -34,8 +34,6 @@ const Header = () => {
         </a>
       </Link>
 
-      {mediaMobile ? (
-        <>
           <IconButton
             aria-label='Hamburger button'
             component='button'
@@ -68,10 +66,6 @@ const Header = () => {
 
             <Navbar closeDrawer={closeDrawer} />
           </Drawer>
-        </>
-      ) : (
-        <Navbar closeDrawer={closeDrawer} />
-      )}
     </Box>
   );
 };
