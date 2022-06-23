@@ -2,21 +2,20 @@ import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 
-const HeadlineText = ({ pageId, text}) => {
+const HeadlineText = ({ pageId, text }) => {
   return (
     <Box sx={{ mx: 'auto' }}>
       <Typography
         variant='navText'
         component='p'
         align='center'
-        sx={{ pb: 4 }}
+        sx={{ pb: 4, color: 'neutral.light' }}
       >
         <Box component='span' sx={styledNumber}>
           {pageId}
         </Box>
         {text}
       </Typography>
-
     </Box>
   );
 };

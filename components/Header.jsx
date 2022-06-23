@@ -16,7 +16,7 @@ const Header = () => {
   const openDrawer = () => setDrawerStatus(true);
   const closeDrawer = () => setDrawerStatus(false);
 
-  const mediaMobile = useMediaQuery('(max-width: 599px)');
+  // const mediaMobile = useMediaQuery('(max-width: 599px)');
 
   return (
     <Box sx={styledHeader}>
@@ -34,13 +34,16 @@ const Header = () => {
         </a>
       </Link>
 
-      {mediaMobile ? (
-        <>
           <IconButton
             aria-label='Hamburger button'
             component='button'
             onClick={openDrawer}
-            sx={{ minWidth: 'max-content', p: 0 }}
+            color='primary'
+            sx={{
+              minWidth: 'max-content',
+              p: 0,
+              borderRadius: 0,
+            }}
           >
             <Image src={menuIcon} alt='hamburger icon' />
           </IconButton>
@@ -50,7 +53,7 @@ const Header = () => {
             open={drawerStatus}
             onClose={closeDrawer}
             sx={styledDrawer}
-            hideBackdrop={true}
+            hideBackdrop={false}
           >
             <IconButton
               aria-label='Close button'
@@ -63,10 +66,6 @@ const Header = () => {
 
             <Navbar closeDrawer={closeDrawer} />
           </Drawer>
-        </>
-      ) : (
-        <Navbar closeDrawer={closeDrawer} />
-      )}
     </Box>
   );
 };
@@ -87,6 +86,10 @@ const styledLogo = {
   width: '2rem',
   height: '2rem',
   borderRadius: '50%',
+
+  '&:focus': {
+    border: '1px solid red',
+  },
 };
 
 const styledDrawer = ({ palette }) => ({
@@ -101,6 +104,10 @@ const styledDrawer = ({ palette }) => ({
       bgcolor: 'transparent',
       backdropFilter: 'blur(42.5px)',
     },
+  },
+
+  '& .MuiBackdrop-root': {
+    opacity: '0 !important',
   },
 });
 

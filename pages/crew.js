@@ -69,7 +69,10 @@ export default function Crew() {
               <Typography variant='h4' sx={{ color: 'hsla(0,0%,100%, .5)' }}>
                 {data.role}
               </Typography>
-              <Typography variant='h3' align='center' sx={{ my: '.3em' }}>
+              <Typography
+                variant='h3'
+                sx={{ my: '.3em', color: 'neutral.light', align: 'center' }}
+              >
                 {data.name}
               </Typography>
               <Typography
@@ -90,7 +93,7 @@ export default function Crew() {
 
 const styledLayout = {
   background:
-    'url(assets/crew/background-crew-mobile.jpg) center / cover no-repeat',
+    'url(assets/crew/background-crew-tablet.jpg) center / cover no-repeat',
 };
 
 const styledControlWrapper = (theme) => ({

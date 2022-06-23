@@ -65,7 +65,11 @@ export default function Technology() {
               <Typography variant='navText' sx={{ color: 'primary.main' }}>
                 the terminology...
               </Typography>
-              <Typography variant='h3' align='center' sx={{ my: '.3em' }}>
+              <Typography
+                variant='h3'
+                align='center'
+                sx={{ my: '.3em', color: 'neutral.light' }}
+              >
                 {data.name}
               </Typography>
               <Typography
@@ -86,7 +90,7 @@ export default function Technology() {
 
 const styledLayout = {
   background:
-    'url(assets/technology/background-technology-mobile.jpg) center center / 100% 100% no-repeat',
+    'url(assets/technology/background-technology-tablet.jpg) center / cover no-repeat',
 };
 
 const styledTabs = (theme) => ({
