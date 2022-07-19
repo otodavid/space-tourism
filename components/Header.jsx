@@ -75,7 +75,7 @@ const styledHeader = {
   bgcolor: 'transparent',
   display: 'flex',
   justifyContent: 'space-between',
-  mb: 2,
+  mb: 1,
   p: 3,
 };
 
