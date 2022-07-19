@@ -20,7 +20,7 @@ export default function Crew() {
       <Box sx={{ px: 3 }}>
         <HeadlineText pageId='02' text='meet your crew' />
 
-        <Box sx={{ width: '70%', mx: 'auto', pt: 2 }}>
+        <Box sx={{ width: '70%', mx: 'auto' }}>
           {data.crew.map((data, index) => (
             <TabPanel key={data.name} value={value} index={index} sx={{ p: 0 }}>
               <Box
@@ -93,7 +93,7 @@ export default function Crew() {
 
 const styledLayout = {
   background:
-    'url(assets/crew/background-crew-tablet.jpg) center / cover no-repeat',
+    'url(assets/crew/background-crew-mobile.jpg) center / cover no-repeat',
 };
 
 const styledControlWrapper = (theme) => ({

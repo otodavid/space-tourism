@@ -45,8 +45,9 @@ export default function Technology() {
         <Tabs
           value={value}
           onChange={handleChange}
-          sx={styledTabs}
+          sx={styledTabList}
           aria-label='technology tabs'
+          selectionFollowsFocus
         >
           {data.technology.map((data, index) => (
             <Tab
@@ -76,7 +77,7 @@ export default function Technology() {
                 variant='body1'
                 align='center'
                 color='primary.main'
-                sx={{ mt: '.8em' }}
+                sx={{ my: '1em' }}
               >
                 {data.description}
               </Typography>
@@ -93,7 +94,7 @@ const styledLayout = {
     'url(assets/technology/background-technology-tablet.jpg) center / cover no-repeat',
 };
 
-const styledTabs = (theme) => ({
+const styledTabList = (theme) => ({
   width: '80%',
   mx: 'auto',
   my: 4,

@@ -1,5 +1,3 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { Typography, Button } from '@mui/material';
 import Layout from '../components/Layout';
@@ -8,8 +6,8 @@ import { Box } from '@mui/system';
 export default function Home() {
   return (
     <Layout title='Space Travel | Homepage' sx={styledLayout}>
-      <Box sx={{ px: 3 }}>
-        <Box sx={{ w: 1, mx: 'auto', textAlign: 'center' }}>
+      <Box sx={{ px: 2 }}>
+        <Box sx={{ w: '100%', mx: 'auto', textAlign: 'center' }}>
           <Typography
             variant='h5'
             component='h5'
@@ -45,7 +43,7 @@ export default function Home() {
 
 const styledLayout = {
   background:
-    'url(assets/home/background-home-tablet.jpg) center center / 100% 100% no-repeat',
+    'url(assets/home/background-home-mobile.jpg) center center / 100% 100% no-repeat',
 };
 
 const styledButtonWrapper = ({ palette }) => ({

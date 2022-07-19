@@ -16,8 +16,6 @@ const Header = () => {
   const openDrawer = () => setDrawerStatus(true);
   const closeDrawer = () => setDrawerStatus(false);
 
-  // const mediaMobile = useMediaQuery('(max-width: 599px)');
-
   return (
     <Box sx={styledHeader}>
       <Link href='/'>
@@ -34,38 +32,38 @@ const Header = () => {
         </a>
       </Link>
 
-          <IconButton
-            aria-label='Hamburger button'
-            component='button'
-            onClick={openDrawer}
-            color='primary'
-            sx={{
-              minWidth: 'max-content',
-              p: 0,
-              borderRadius: 0,
-            }}
-          >
-            <Image src={menuIcon} alt='hamburger icon' />
-          </IconButton>
+      <IconButton
+        aria-label='Hamburger button'
+        component='button'
+        onClick={openDrawer}
+        color='primary'
+        sx={{
+          minWidth: 'max-content',
+          p: 0,
+          borderRadius: 0,
+        }}
+      >
+        <Image src={menuIcon} alt='hamburger icon' />
+      </IconButton>
 
-          <Drawer
-            anchor='right'
-            open={drawerStatus}
-            onClose={closeDrawer}
-            sx={styledDrawer}
-            hideBackdrop={false}
-          >
-            <IconButton
-              aria-label='Close button'
-              component='span'
-              onClick={closeDrawer}
-              sx={styledCloseButton}
-            >
-              <Close sx={{ color: 'neutral.light', fontSize: '1.5rem' }} />
-            </IconButton>
+      <Drawer
+        anchor='right'
+        open={drawerStatus}
+        onClose={closeDrawer}
+        sx={styledDrawer}
+        hideBackdrop={false}
+      >
+        <IconButton
+          aria-label='Close button'
+          component='span'
+          onClick={closeDrawer}
+          sx={styledCloseButton}
+        >
+          <Close sx={{ color: 'neutral.light', fontSize: '2rem' }} />
+        </IconButton>
 
-            <Navbar closeDrawer={closeDrawer} />
-          </Drawer>
+        <Navbar closeDrawer={closeDrawer} />
+      </Drawer>
     </Box>
   );
 };
@@ -77,7 +75,7 @@ const styledHeader = {
   bgcolor: 'transparent',
   display: 'flex',
   justifyContent: 'space-between',
-  mb: 2,
+  mb: 1,
   p: 3,
 };
 
@@ -114,5 +112,5 @@ const styledDrawer = ({ palette }) => ({
 const styledCloseButton = {
   display: 'block',
   width: 'max-content',
-  margin: '0 0 1rem auto',
+  margin: '0 0 2.5rem auto',
 };
