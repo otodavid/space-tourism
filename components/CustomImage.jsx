@@ -8,8 +8,8 @@ const CustomImage = ({ src, alt }) => {
       <Image
         src={src}
         alt={alt}
-        width={200}
-        height={200}
+        width={150}
+        height={120}
         layout='responsive'
         objectFit='contain'
         objectPosition='center center'

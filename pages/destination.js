@@ -31,19 +31,21 @@ export default function Destination() {
         </Box>
 
         <Tabs
-          value={value}
-          onChange={handleChange}
-          sx={styledTabs}
           aria-label='destination tabs'
           className='tabs'
+          value={value}
+          onChange={handleChange}
+          sx={styledTabList}
+          variant='scrollable'
+          selectionFollowsFocus
         >
           {data.destinations.map((data, index) => (
             <Tab
               key={data.name}
               label={data.name}
-              sx={styledSingleTab}
+              sx={styledTab}
               {...a11yProps(index)}
-              disableRipple
+              // disableRipple
             />
           ))}
         </Tabs>
@@ -61,15 +63,7 @@ export default function Destination() {
 
         {data.destinations.map((data, index) => (
           <TabPanel key={data.name} value={value} index={index}>
-            <Box
-              sx={{
-                borderTop: 1,
-                borderColor: '#383B4B',
-                mt: 4,
-                pt: 4,
-                pb: 2,
-              }}
-            >
+            <Box sx={styledTabMetrics}>
               <Box>
                 <Typography variant='subtitle2' color='primary.main'>
                   avg. distance
@@ -100,29 +94,38 @@ const styledLayout = {
     'url(assets/destination/background-destination-tablet.jpg) center / cover no-repeat',
 };
 
-const styledTabs = (theme) => ({
-  width: '83%',
+const styledTabList = (theme) => ({
+  width: 'max-content',
   mx: 'auto',
-  mt: 2,
+  mt: 0,
   mb: 1,
 
   '&.tabs .MuiTabs-indicator': {
-    display: 'block',
-    width: '2.15rem !important',
-    ml: '16px',
-    bottom: '.5rem',
-    bgcolor: theme.palette.neutral.light,
+    background: `linear-gradient(to right, 
+      transparent 25%,
+      ${theme.palette.neutral.light} 0, 
+      ${theme.palette.neutral.light} 74%, 
+      transparent 0)`,
+    bottom: '7px',
   },
 });
 
-const styledSingleTab = (theme) => ({
+const styledTab = (theme) => ({
   color: theme.palette.primary.main,
   fontFamily: theme.typography.navText,
   fontSize: '.875rem',
   letterSpacing: '2.36px',
   minWidth: '0',
+  p: 1.5,
 
   '&.Mui-selected': {
     color: theme.palette.neutral.light,
   },
 });
+
+const styledTabMetrics = {
+  borderTop: 1,
+  borderColor: '#383B4B',
+  mt: 4,
+  py: 4,
+};
