@@ -33,9 +33,6 @@ theme = createTheme(theme, {
       textTransform: 'uppercase',
 
       [breakpoints.up('sm')]: {
-        fontSize: '7.5rem',
-      },
-      [breakpoints.up('md')]: {
         fontSize: '9.375rem',
       },
     },
