@@ -22,7 +22,7 @@ const Layout = ({ children, title, sx, description }) => {
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
 
-      <Container disableGutters sx={{ ...sx, minHeight: '100vh'}}>
+      <Container disableGutters sx={[sx, { minHeight: '100vh' }]}>
         <Header />
 
         <Box component='main'>{children}</Box>
