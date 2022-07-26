@@ -85,7 +85,7 @@ const styledHeader = (theme) => ({
 
   [theme.breakpoints.up('sm')]: {
     p: 0,
-    pl: 3
+    pl: 5
   },
 });
 
