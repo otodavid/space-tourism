@@ -17,7 +17,7 @@ export default function Destination() {
 
   return (
     <Layout title='Destination' sx={styledLayout}>
-      <Box sx={{ px: 3 }}>
+      <Box sx={{ px: 5 }}>
         <HeadlineText pageId='01' text='pick your destination' />
 
         <Box sx={styledImageContainer}>
@@ -103,13 +103,13 @@ const styledLayout = (theme) => ({
   },
 });
 
-const styledImageContainer = theme => ({
+const styledImageContainer = (theme) => ({
   width: '60%',
   mx: 'auto',
 
   [theme.breakpoints.up('sm')]: {
-    width: 'min(50%, 28rem)',    
-  }
+    width: 'min(50%, 28rem)',
+  },
 });
 
 const styledTabList = (theme) => ({
@@ -166,7 +166,6 @@ const styledTab = (theme) => ({
 });
 
 const styledTabDescription = (theme) => ({
-  
   [theme.breakpoints.up('sm')]: {
     width: 'min(100% - 1rem, 35rem)',
     mx: 'auto',
