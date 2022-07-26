@@ -42,11 +42,7 @@ export default function Home() {
 
 const styledLayout = (theme) => ({
   backgroundImage: 'url(assets/home/background-home-mobile.jpg)',
-  backgroundColor: theme.palette.neutral.dark,
-  backgroundPosition: 'center center',
-  backgroundSize: '100% 100%',
-  backgroundRepeat: 'no-repeat',
-
+  
   [theme.breakpoints.up('sm')]: {
     backgroundImage: 'url(assets/home/background-home-tablet.jpg)',
   },
