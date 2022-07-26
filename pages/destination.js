@@ -17,7 +17,7 @@ export default function Destination() {
 
   return (
     <Layout title='Destination' sx={styledLayout}>
-      <Box sx={{ px: 5 }}>
+      <Box sx={{ px: { xs: 3, sm: 5 } }}>
         <HeadlineText pageId='01' text='pick your destination' />
 
         <Box sx={styledImageContainer}>
