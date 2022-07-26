@@ -112,5 +112,6 @@ const styledButtonText = (theme) => ({
 
   [theme.breakpoints.up('sm')]: {
     fontSize: '2rem',
+    letterSpacing: '2px',
   },
 });
