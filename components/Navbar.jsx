@@ -29,18 +29,7 @@ const Navbar = ({ closeDrawer }) => {
                     </Box>
                     {item}
                   </Typography>
-                  {activeLink(item) && (
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        bottom: '-2.2rem',
-                        left: '0',
-                        bgcolor: 'white',
-                        width: '100%',
-                        height: '3px',
-                      }}
-                    ></Box>
-                  )}
+                  {activeLink(item) && <Box sx={styledActiveLink}></Box>}
                 </a>
               </Box>
             </Link>
@@ -82,5 +71,16 @@ const styledNavNumber = (theme) => ({
 
   [theme.breakpoints.up('sm')]: {
     display: 'none',
+  },
+});
+
+const styledActiveLink = (theme) => ({
+  [theme.breakpoints.up('sm')]: {
+    position: 'absolute',
+    bottom: '-2.2rem',
+    left: '0',
+    bgcolor: 'white',
+    width: '100%',
+    height: '3px',
   },
 });
