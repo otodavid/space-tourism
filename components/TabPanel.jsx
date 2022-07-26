@@ -2,7 +2,7 @@ import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
 
 const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, sx, ...other } = props;
 
   return (
     <div
@@ -13,7 +13,7 @@ const TabPanel = (props) => {
       {...other}
     >
       {value === index && (
-        <Box sx={{ textAlign: 'center' }}>{children}</Box>
+        <Box sx={[sx, { textAlign: 'center' }]}>{children}</Box>
       )}
     </div>
   );

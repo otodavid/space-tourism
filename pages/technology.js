@@ -17,19 +17,14 @@ export default function Technology() {
   return (
     <Layout title='technology' sx={styledLayout}>
       <Box>
-        <HeadlineText text='space launch 101' pageId='03' />
+        <Box sx={{ pl: { sm: 5 } }}>
+          <HeadlineText text='space launch 101' pageId='03' />
+        </Box>
 
         <Box>
           {data.technology.map((data, index) => (
             <TabPanel key={data.name} value={value} index={index}>
-              <Box
-                sx={{
-                  width: '100%',
-                  minHeight: '170px',
-                  overflow: 'hidden',
-                  position: 'relative',
-                }}
-              >
+              <Box sx={styledImageContainer}>
                 <Image
                   src={data.images.landscape}
                   alt={data.name}
@@ -60,7 +55,7 @@ export default function Technology() {
           ))}
         </Tabs>
 
-        <Box sx={{ px: 3 }}>
+        <Box sx={styledTabDescription}>
           {data.technology.map((data, index) => (
             <TabPanel key={data.name} value={value} index={index}>
               <Typography variant='navText' sx={{ color: 'primary.main' }}>
@@ -89,10 +84,24 @@ export default function Technology() {
   );
 }
 
-const styledLayout = {
-  background:
-    'url(assets/technology/background-technology-tablet.jpg) center / cover no-repeat',
-};
+const styledLayout = (theme) => ({
+  backgroundImage: 'url(assets/technology/background-technology-mobile.jpg)',
+
+  [theme.breakpoints.up('sm')]: {
+    backgroundImage: 'url(assets/technology/background-technology-tablet.jpg)',
+  },
+});
+
+const styledImageContainer = (theme) => ({
+  width: '100%',
+  minHeight: '170px',
+  overflow: 'hidden',
+  position: 'relative',
+
+  [theme.breakpoints.up('sm')]: {
+    minHeight: '20rem',
+  },
+});
 
 const styledTabList = (theme) => ({
   width: '80%',
@@ -100,6 +109,10 @@ const styledTabList = (theme) => ({
   my: 4,
   mb: 3,
   minHeight: 0,
+
+  [theme.breakpoints.up('sm')]: {
+    my: 6,
+  },
 
   '& .MuiTabs-flexContainer': {
     justifyContent: 'center',
@@ -118,7 +131,7 @@ const styledTabControl = (theme) => ({
   minHeight: 0,
   padding: 0,
   mr: 2,
-  fontFamily: theme.typography.h4,
+  ...theme.typography.h4,
   lineHeight: '1',
   color: theme.palette.neutral.light,
   bgcolor: 'transparent',
@@ -127,8 +140,22 @@ const styledTabControl = (theme) => ({
   borderRadius: '50%',
   alignSelf: 'center',
 
+  [theme.breakpoints.up('sm')]: {
+    height: '60px',
+    width: '60px',
+  },
+
   '&.Mui-selected': {
     color: theme.palette.neutral.dark,
     bgcolor: theme.palette.neutral.light,
+  },
+});
+
+const styledTabDescription = (theme) => ({
+  px: 3,
+
+  [theme.breakpoints.up('sm')]: {
+    width: 'min(100% - 1rem, 60ch)',
+    mx: 'auto',
   },
 });

@@ -1,4 +1,4 @@
-import { Divider, Tab, Tabs, Typography } from '@mui/material';
+import { Divider, Grid, Tab, Tabs, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -17,90 +17,122 @@ export default function Crew() {
 
   return (
     <Layout title='Crew' sx={styledLayout}>
-      <Box sx={{ px: 3 }}>
+      <Box sx={{ px: { xs: 3, sm: 5 } }}>
         <HeadlineText pageId='02' text='meet your crew' />
 
-        <Box sx={{ width: '70%', mx: 'auto' }}>
-          {data.crew.map((data, index) => (
-            <TabPanel key={data.name} value={value} index={index} sx={{ p: 0 }}>
-              <Box
-                sx={{
-                  width: '100%',
-                  minHeight: '200px',
-                  pl: 1,
-                }}
+        <Box sx={styledGrid}>
+          <Box sx={styledImageContainer}>
+            {data.crew.map((data, index) => (
+              <TabPanel
+                key={data.name}
+                value={value}
+                index={index}
+                sx={{ p: 0 }}
               >
-                <Image
-                  src={data.images.png}
-                  alt={data.name}
-                  width={200}
-                  height={200}
-                  layout='responsive'
-                  objectFit='contain'
-                  objectPosition='center center'
-                />
-              </Box>
-            </TabPanel>
-          ))}
-        </Box>
+                <Box
+                  sx={{
+                    width: '100%',
+                    minHeight: '200px',
+                    pl: 1,
+                  }}
+                >
+                  <Image
+                    src={data.images.png}
+                    alt={data.name}
+                    width={200}
+                    height={200}
+                    layout='responsive'
+                    objectFit='contain'
+                    objectPosition='center center'
+                  />
+                </Box>
+              </TabPanel>
+            ))}
+          </Box>
 
-        <Divider sx={{ borderColor: 'hsl(231, 15%, 26%)' }} />
+          <Divider
+            sx={{ borderColor: 'hsl(231, 15%, 26%)', display: { sm: 'none' } }}
+          />
 
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          sx={styledControlWrapper}
-          aria-label='crew tabs'
-        >
-          {data.destinations.map((data, index) => (
-            <Tab
-              key={data.name}
-              label=''
-              sx={styledTabControl}
-              {...a11yProps(index)}
-              disableRipple
-            />
-          ))}
-        </Tabs>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            sx={styledControlWrapper}
+            aria-label='crew tabs'
+          >
+            {data.destinations.map((data, index) => (
+              <Tab
+                key={data.name}
+                label=''
+                sx={styledTabControl}
+                {...a11yProps(index)}
+                disableRipple
+              />
+            ))}
+          </Tabs>
 
-        <Box>
-          {data.crew.map((data, index) => (
-            <TabPanel key={data.name} value={value} index={index}>
-              <Typography variant='h4' sx={{ color: 'hsla(0,0%,100%, .5)' }}>
-                {data.role}
-              </Typography>
-              <Typography
-                variant='h3'
-                sx={{ my: '.3em', color: 'neutral.light', align: 'center' }}
-              >
-                {data.name}
-              </Typography>
-              <Typography
-                variant='body1'
-                color='primary.main'
-                align='center'
-                sx={{ mt: '.8em' }}
-              >
-                {data.bio}
-              </Typography>
-            </TabPanel>
-          ))}
+          <Box sx={styledTabDescription}>
+            {data.crew.map((data, index) => (
+              <TabPanel key={data.name} value={value} index={index}>
+                <Typography variant='h4' sx={{ color: 'hsla(0,0%,100%, .5)' }}>
+                  {data.role}
+                </Typography>
+                <Typography
+                  variant='h3'
+                  sx={{ my: '.3em', color: 'neutral.light', align: 'center' }}
+                >
+                  {data.name}
+                </Typography>
+                <Typography
+                  variant='body1'
+                  color='primary.main'
+                  align='center'
+                  sx={{ mt: '.8em' }}
+                >
+                  {data.bio}
+                </Typography>
+              </TabPanel>
+            ))}
+          </Box>
         </Box>
       </Box>
     </Layout>
   );
 }
 
-const styledLayout = {
-  background:
-    'url(assets/crew/background-crew-mobile.jpg) center / cover no-repeat',
-};
+const styledLayout = (theme) => ({
+  backgroundImage: 'url(assets/crew/background-crew-mobile.jpg)',
+
+  [theme.breakpoints.up('sm')]: {
+    backgroundImage: 'url(assets/crew/background-crew-tablet.jpg)',
+  },
+});
+
+const styledGrid = (theme) => ({
+  [theme.breakpoints.up('sm')]: {
+    display: 'flex',
+    flexDirection: 'column-reverse',
+  },
+});
+
+const styledImageContainer = (theme) => ({
+  width: '70%',
+  mx: 'auto',
+
+  [theme.breakpoints.up('sm')]: {
+    width: '77.3%',
+  },
+});
 
 const styledControlWrapper = (theme) => ({
   width: '80%',
   mx: 'auto',
   my: 4,
   minHeight: 0,
+
+  [theme.breakpoints.up('sm')]: {
+    my: 6,
+  },
 
   '& .MuiTabs-flexContainer': {
     justifyContent: 'center',
@@ -127,5 +159,14 @@ const styledTabControl = (theme) => ({
   '&.Mui-selected': {
     color: theme.palette.neutral.light,
     bgcolor: theme.palette.neutral.light,
+  },
+});
+
+const styledTabDescription = (theme) => ({
+  '& p': {
+    [theme.breakpoints.up('sm')]: {
+      width: 'min(100% - 1rem, 65ch)',
+      mx: 'auto',
+    },
   },
 });

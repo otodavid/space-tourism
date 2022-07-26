@@ -1,17 +1,19 @@
 import { Box } from '@mui/system';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import logo from '/public/assets/shared/logo.svg';
 import menuIcon from '/public/assets/shared/icon-hamburger.svg';
-import { Button, IconButton, useMediaQuery } from '@mui/material';
+import { Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import Navbar from './Navbar';
 import { List, ListItem } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
 const Header = () => {
   const [drawerStatus, setDrawerStatus] = useState(false);
+  const theme = useTheme();
+  const mobileView = useMediaQuery(theme.breakpoints.down('sm'));
 
   const openDrawer = () => setDrawerStatus(true);
   const closeDrawer = () => setDrawerStatus(false);
@@ -37,11 +39,7 @@ const Header = () => {
         component='button'
         onClick={openDrawer}
         color='primary'
-        sx={{
-          minWidth: 'max-content',
-          p: 0,
-          borderRadius: 0,
-        }}
+        sx={styledMenuButton}
       >
         <Image src={menuIcon} alt='hamburger icon' />
       </IconButton>
@@ -64,20 +62,32 @@ const Header = () => {
 
         <Navbar closeDrawer={closeDrawer} />
       </Drawer>
+
+      {!mobileView && (
+        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Navbar />
+        </Box>
+      )}
     </Box>
   );
 };
 
 export default Header;
 
-const styledHeader = {
+const styledHeader = (theme) => ({
   width: 1,
   bgcolor: 'transparent',
   display: 'flex',
   justifyContent: 'space-between',
+  alignItems: 'center',
   mb: 1,
   p: 3,
-};
+
+  [theme.breakpoints.up('sm')]: {
+    p: 0,
+    pl: 5
+  },
+});
 
 const styledLogo = {
   bgcolor: 'neutral.light',
@@ -89,6 +99,16 @@ const styledLogo = {
     border: '1px solid red',
   },
 };
+
+const styledMenuButton = (theme) => ({
+  minWidth: 'max-content',
+  p: 0,
+  borderRadius: 0,
+
+  [theme.breakpoints.up('sm')]: {
+    display: 'none',
+  },
+});
 
 const styledDrawer = ({ palette }) => ({
   '& .MuiDrawer-paper': {

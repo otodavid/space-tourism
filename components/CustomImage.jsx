@@ -9,7 +9,7 @@ const CustomImage = ({ src, alt }) => {
         src={src}
         alt={alt}
         width={150}
-        height={120}
+        height={150}
         layout='responsive'
         objectFit='contain'
         objectPosition='center center'

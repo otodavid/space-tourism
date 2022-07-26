@@ -22,7 +22,7 @@ const Layout = ({ children, title, sx, description }) => {
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
 
-      <Container disableGutters sx={{ ...sx, minHeight: '100vh'}}>
+      <Container disableGutters sx={[sx, styledDefaultLayout]}>
         <Header />
 
         <Box component='main'>{children}</Box>
@@ -32,3 +32,12 @@ const Layout = ({ children, title, sx, description }) => {
 };
 
 export default Layout;
+
+const styledDefaultLayout = (theme) => ({
+  minHeight: '100vh',
+  overflow: 'hidden',
+  backgroundColor: theme.palette.neutral.dark,
+  backgroundPosition: 'center center',
+  backgroundSize: '100% 100%',
+  backgroundRepeat: 'no-repeat',
+});

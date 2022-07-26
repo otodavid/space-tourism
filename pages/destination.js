@@ -17,10 +17,10 @@ export default function Destination() {
 
   return (
     <Layout title='Destination' sx={styledLayout}>
-      <Box sx={{ px: 3 }}>
+      <Box sx={{ px: { xs: 3, sm: 5 } }}>
         <HeadlineText pageId='01' text='pick your destination' />
 
-        <Box sx={{ width: '70%', mx: 'auto' }}>
+        <Box sx={styledImageContainer}>
           {data.destinations.map((data, index) => (
             <TabPanel key={data.name} value={value} index={index}>
               <Box>
@@ -51,7 +51,12 @@ export default function Destination() {
         </Tabs>
 
         {data.destinations.map((data, index) => (
-          <TabPanel key={data.name} value={value} index={index}>
+          <TabPanel
+            key={data.name}
+            value={value}
+            index={index}
+            sx={styledTabDescription}
+          >
             <Typography variant='h2' color='neutral.light'>
               {data.name}
             </Typography>
@@ -73,7 +78,7 @@ export default function Destination() {
                 </Typography>
               </Box>
 
-              <Box sx={{ mt: 3 }}>
+              <Box sx={{ mt: { xs: 3, sm: 0 } }}>
                 <Typography variant='subtitle2' color='primary.main'>
                   est. travel time
                 </Typography>
@@ -89,16 +94,34 @@ export default function Destination() {
   );
 }
 
-const styledLayout = {
-  background:
-    'url(assets/destination/background-destination-tablet.jpg) center / cover no-repeat',
-};
+const styledLayout = (theme) => ({
+  backgroundImage: 'url(assets/destination/background-destination-mobile.jpg)',
+
+  [theme.breakpoints.up('sm')]: {
+    backgroundImage:
+      'url(assets/destination/background-destination-tablet.jpg)',
+  },
+});
+
+const styledImageContainer = (theme) => ({
+  width: '60%',
+  mx: 'auto',
+
+  [theme.breakpoints.up('sm')]: {
+    width: 'min(50%, 28rem)',
+  },
+});
 
 const styledTabList = (theme) => ({
   width: 'max-content',
   mx: 'auto',
-  mt: 0,
-  mb: 1,
+  mb: 2,
+  mt: 3,
+
+  [theme.breakpoints.up('sm')]: {
+    mt: 4,
+    mb: 2,
+  },
 
   '&.tabs .MuiTabs-indicator': {
     background: `linear-gradient(to right, 
@@ -107,6 +130,21 @@ const styledTabList = (theme) => ({
       ${theme.palette.neutral.light} 74%, 
       transparent 0)`,
     bottom: '7px',
+
+    [theme.breakpoints.up('sm')]: {
+      background: `linear-gradient(to right, 
+        transparent 20%,
+        ${theme.palette.neutral.light} 0, 
+        ${theme.palette.neutral.light} 80%, 
+        transparent 0)`,
+    },
+  },
+
+  '& .MuiTabs-flexContainer': {
+    [theme.breakpoints.up('sm')]: {
+      width: '20rem',
+      justifyContent: 'space-between',
+    },
   },
 });
 
@@ -118,14 +156,33 @@ const styledTab = (theme) => ({
   minWidth: '0',
   p: 1.5,
 
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1rem',
+  },
+
   '&.Mui-selected': {
     color: theme.palette.neutral.light,
   },
 });
 
-const styledTabMetrics = {
+const styledTabDescription = (theme) => ({
+  [theme.breakpoints.up('sm')]: {
+    width: 'min(100% - 1rem, 35rem)',
+    mx: 'auto',
+  },
+});
+
+const styledTabMetrics = (theme) => ({
   borderTop: 1,
   borderColor: '#383B4B',
   mt: 4,
   py: 4,
-};
+
+  [theme.breakpoints.up('sm')]: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '7rem',
+    mt: 6,
+    pt: 3,
+  },
+});
