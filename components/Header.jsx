@@ -64,7 +64,7 @@ const Header = () => {
       </Drawer>
 
       {!mobileView && (
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Box sx={styledNavContainer}>
           <Navbar />
         </Box>
       )}
@@ -85,20 +85,29 @@ const styledHeader = (theme) => ({
 
   [theme.breakpoints.up('sm')]: {
     p: 0,
-    pl: 5
+    pl: 5,
+  },
+
+  [theme.breakpoints.up('md')]: {
+    py: 5,
   },
 });
 
-const styledLogo = {
+const styledLogo = (theme) => ({
   bgcolor: 'neutral.light',
-  width: '2rem',
-  height: '2rem',
+  width: '2.5rem',
+  height: '2.5rem',
   borderRadius: '50%',
+
+  [theme.breakpoints.up('sm')]: {
+    width: '3rem',
+    height: '3rem',
+  },
 
   '&:focus': {
     border: '1px solid red',
   },
-};
+});
 
 const styledMenuButton = (theme) => ({
   minWidth: 'max-content',
@@ -134,3 +143,8 @@ const styledCloseButton = {
   width: 'max-content',
   margin: '0 0 2.5rem auto',
 };
+
+const styledNavContainer = (theme) => ({
+  display: { xs: 'none', sm: 'block' },
+  flex: { md: '0 1 57%' },
+});
