@@ -119,12 +119,12 @@ const styledMenuButton = (theme) => ({
   },
 });
 
-const styledDrawer = ({ palette }) => ({
+const styledDrawer = (theme) => ({
   '& .MuiDrawer-paper': {
     width: 'clamp(10rem, 65vw + 1rem, 30rem)',
     display: 'block',
-    bgcolor: palette.neutral.dark,
-    color: palette.neutral.light,
+    bgcolor: theme.palette.neutral.dark,
+    color: theme.palette.neutral.light,
     p: 2,
 
     '@supports (backdrop-filter: blur())': {
@@ -135,6 +135,10 @@ const styledDrawer = ({ palette }) => ({
 
   '& .MuiBackdrop-root': {
     opacity: '0 !important',
+  },
+
+  [theme.breakpoints.up('sm')]: {
+    display: 'none',
   },
 });
 
