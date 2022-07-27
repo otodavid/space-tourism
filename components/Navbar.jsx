@@ -61,7 +61,7 @@ const styledNav = (theme) => ({
     bgcolor: 'hsla(0,0%,100%, .04)',
 
     '@supports (backdrop-filter: blur())': {
-      backdropFilter: 'blur(100px)',
+      backdropFilter: 'blur(81.55px)',
     },
   },
 
