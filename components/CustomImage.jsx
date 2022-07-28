@@ -22,6 +22,5 @@ export default CustomImage;
 
 const styledImage = {
   width: '100%',
-  minHeight: '200px',
   overflow: 'hidden',
 };
