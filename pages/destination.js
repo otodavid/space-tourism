@@ -112,7 +112,7 @@ const styledLayout = (theme) => ({
   },
 });
 
-const styledContainer = (theme) => ({ px: { xs: 3, sm: 5, md: 8 } });
+const styledContainer = (theme) => ({ px: { xs: 3, sm: 5, lg: 8 } });
 
 const styledGridContainer = (theme) => ({
   justifyContent: 'center',
