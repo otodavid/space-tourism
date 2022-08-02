@@ -21,7 +21,7 @@ export default function Destination() {
       <Box sx={styledContainer}>
         <HeadlineText pageId='01' text='pick your destination' />
 
-        <Grid container sx={styledGridContainer}>
+        <Grid container sx={styledGrid}>
           <Grid item xs={7} sm={6} md={5} lg={5}>
             {data.destinations.map((data, index) => (
               <TabPanel key={data.name} value={value} index={index}>
@@ -38,7 +38,7 @@ export default function Destination() {
               className='tabs'
               value={value}
               onChange={handleChange}
-              sx={styledTabList}
+              sx={styledTabControlContainer}
               variant='scrollable'
               selectionFollowsFocus
             >
@@ -46,7 +46,7 @@ export default function Destination() {
                 <Tab
                   key={data.name}
                   label={data.name}
-                  sx={styledTab}
+                  sx={styledTabControl}
                   {...a11yProps(index)}
                 />
               ))}
@@ -114,7 +114,7 @@ const styledLayout = (theme) => ({
 
 const styledContainer = (theme) => ({ px: { xs: 3, sm: 5, lg: 8 } });
 
-const styledGridContainer = (theme) => ({
+const styledGrid = (theme) => ({
   justifyContent: 'center',
   pb: 5,
 
@@ -128,10 +128,11 @@ const styledGridContainer = (theme) => ({
   [theme.breakpoints.up('lg')]: {
     maxWidth: '65rem',
     pl: 5,
+    pt: 4,
   },
 });
 
-const styledTabList = (theme) => ({
+const styledTabControlContainer = (theme) => ({
   width: 'max-content',
   mx: 'auto',
   my: 1,
@@ -181,7 +182,7 @@ const styledTabList = (theme) => ({
   },
 });
 
-const styledTab = (theme) => ({
+const styledTabControl = (theme) => ({
   color: theme.palette.primary.main,
   fontFamily: theme.typography.navText,
   fontSize: '.875rem',
@@ -223,5 +224,7 @@ const styledTabMetrics = (theme) => ({
     justifyContent: 'flex-start',
     textAlign: 'left',
     gap: '2rem',
+    mt: 6.75,
+    pt: 3.5,
   },
 });
