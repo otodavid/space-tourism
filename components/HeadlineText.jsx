@@ -32,6 +32,10 @@ const styledContainer = (theme) => ({
     mb: 7.5,
   },
 
+  [theme.breakpoints.up('md')]: {
+    mb: 0,
+  },
+
   [theme.breakpoints.up('lg')]: {
     ml: 11.5,
   },
