@@ -10,6 +10,16 @@ let theme = createTheme({
     fontFamily: bodyFont,
   },
 
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1600,
+    },
+  },
+
   palette: {
     primary: {
       main: 'hsl(231, 77%, 90%)',

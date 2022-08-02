@@ -5,8 +5,8 @@ import { Box } from '@mui/system';
 export default function Home() {
   return (
     <Layout title='Space Travel | Homepage' sx={styledLayout}>
-      <Box sx={{ px: 2 }}>
-        <Box sx={{ w: '100%', mx: 'auto', textAlign: 'center' }}>
+      <Box sx={styledHeroSection}>
+        <Box sx={styledHeroText}>
           <Typography
             variant='h5'
             component='h5'
@@ -18,7 +18,11 @@ export default function Home() {
           <Typography variant='h1' sx={{ my: 1.8, color: 'neutral.light' }}>
             space
           </Typography>
-          <Typography variant='body1' color='primary.main' sx={styledHeroText}>
+          <Typography
+            variant='body1'
+            color='primary.main'
+            sx={styledHeroDescription}
+          >
             Let’s face it; if you want to go to space, you might as well
             genuinely go to outer space and not hover kind of on the edge of it.
             Well sit back, and relax because we’ll give you a truly out of this
@@ -42,16 +46,56 @@ export default function Home() {
 
 const styledLayout = (theme) => ({
   backgroundImage: 'url(assets/home/background-home-mobile.jpg)',
-  
+
   [theme.breakpoints.up('sm')]: {
     backgroundImage: 'url(assets/home/background-home-tablet.jpg)',
   },
+
+  [theme.breakpoints.up('md')]: {
+    backgroundImage: 'url(assets/home/background-home-desktop.jpg)',
+  },
 });
 
-const styledHeroText = {
+const styledHeroSection = (theme) => ({
+  px: 2,
+
+  [theme.breakpoints.up('md')]: {
+    width: '90%',
+    maxWidth: '71rem',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    gap: '2rem',
+    mx: 'auto',
+    my: 10,
+  },
+
+  [theme.breakpoints.up('lg')]: {
+    width: '78%',
+  },
+});
+
+const styledHeroText = (theme) => ({
+  width: '100%',
+  mx: 'auto',
+  textAlign: 'center',
+
+  [theme.breakpoints.up('md')]: {
+    flex: '0 1 40%',
+    mx: 0,
+    textAlign: 'left',
+  },
+});
+
+const styledHeroDescription = (theme) => ({
   width: 'min(100% - 1rem, 27.5rem)',
   mx: 'auto',
-};
+
+  [theme.breakpoints.up('md')]: {
+    mx: 0,
+    width: '100%',
+  },
+});
 
 const styledButtonWrapper = (theme) => ({
   width: 'max-content',
@@ -60,6 +104,10 @@ const styledButtonWrapper = (theme) => ({
 
   [theme.breakpoints.up('sm')]: {
     mt: '9.5rem',
+  },
+
+  [theme.breakpoints.up('md')]: {
+    m: 0,
   },
 });
 
@@ -70,8 +118,13 @@ const styledExploreButton = (theme) => ({
   bgcolor: theme.palette.neutral.light,
 
   [theme.breakpoints.up('sm')]: {
-    width: '15rem',
-    height: '15rem',
+    width: '15.125rem',
+    height: '15.125rem',
+  },
+
+  [theme.breakpoints.up('md')]: {
+    width: '17.125rem',
+    height: '17.125rem',
   },
 
   // override default material UI button hover style

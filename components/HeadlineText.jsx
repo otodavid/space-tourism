@@ -22,20 +22,43 @@ const HeadlineText = ({ pageId, text }) => {
 
 export default HeadlineText;
 
-const styledContainer = {
-  mx: { xs: 'auto', sm: '0' },
-  mt: { sm: 5 },
-};
+const styledContainer = (theme) => ({
+  mx: 'auto',
+  mb: 4,
+
+  [theme.breakpoints.up('sm')]: {
+    mx: 0,
+    mt: 5,
+    mb: 7.5,
+  },
+
+  [theme.breakpoints.up('md')]: {
+    mb: 0,
+  },
+
+  [theme.breakpoints.up('lg')]: {
+    ml: 11.5,
+  },
+});
 
 const styledHeadlineText = (theme) => ({
-  pb: { xs: 4, sm: 8 },
   color: 'neutral.light',
-  textAlign: { xs: 'center', sm: 'left' },
-  fontSize: { sm: '1rem' },
+  textAlign: 'center',
+
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.25rem',
+    letterSpacing: '3.38px',
+    textAlign: 'left',
+  },
+
+  [theme.breakpoints.up('lg')]: {
+    letterSpacing: '4.72px',
+    fontSize: '1.75rem',
+  },
 });
 
 const styledNumber = {
   fontWeight: '700',
-  mr: 1.5,
+  mr: 2,
   color: 'hsla(0,0%,100%, .25)',
 };
