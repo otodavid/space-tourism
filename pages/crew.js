@@ -225,7 +225,7 @@ const styledTabDescription = (theme) => ({
   },
 
   [theme.breakpoints.up('lg')]: {
-    margin: '.625rem 0',
+    margin: '4.625rem 0 .625rem 0',
     pl: 13,
   },
 });
