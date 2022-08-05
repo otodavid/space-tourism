@@ -7,6 +7,8 @@ import HeadlineText from '../components/HeadlineText';
 import Layout from '../components/Layout';
 import TabPanel, { a11yProps } from '../components/TabPanel';
 import data from '../data.json';
+import { motion, AnimatePresence } from 'framer-motion';
+import { growVariant } from '../utils/animations';
 
 export default function Crew() {
   const [value, setValue] = useState(0);
@@ -25,7 +27,12 @@ export default function Crew() {
         <Box sx={styledImageContainer}>
           {data.crew.map((data, index) => (
             <TabPanel key={data.name} value={value} index={index} sx={{ p: 0 }}>
-              <Box>
+              <Box
+                component={motion.div}
+                initial={'initial'}
+                animate={'animate'}
+                variants={growVariant}
+              >
                 <CustomImage src={data.images.png} alt={data.name} />
               </Box>
             </TabPanel>
@@ -44,6 +51,7 @@ export default function Crew() {
           onChange={handleChange}
           sx={styledControlWrapper}
           aria-label='crew tabs'
+          selectionFollowsFocus
         >
           {data.destinations.map((data, index) => (
             <Tab
@@ -164,12 +172,12 @@ const styledControlWrapper = (theme) => ({
     width: '100%',
     gridColumn: '1/2',
     gridRow: '3/4',
-    marginBlock: '1rem 4.5rem',
+    marginBlock: '-2rem 4.5rem',
   },
 
   [theme.breakpoints.up('lg')]: {
     paddingInline: '6.5rem',
-    marginBlock: '2rem 5.3rem',
+    marginBlock: '-2rem 4.9rem',
   },
 
   '& .MuiTabs-flexContainer': {
@@ -205,26 +213,43 @@ const styledTabControl = (theme) => ({
   height: '10px',
   alignSelf: 'center',
   mr: 2,
+  transition: 'background-color .3s ease',
 
   '&.Mui-selected': {
     color: theme.palette.neutral.light,
     bgcolor: theme.palette.neutral.light,
+
+    '&:hover': {
+      bgcolor: theme.palette.neutral.light,
+    },
+  },
+
+  '&:hover': {
+    color: 'hsla(0, 100%, 100%, .5)',
+    bgcolor: 'hsla(0, 100%, 100%, .5)',
   },
 });
 
 const styledTabDescription = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     alignSelf: 'center',
-    width: 'min(70%, 40rem)',
+    width: 'min(95%, 40rem)',
+    minHeight: '13.5rem',
+  },
+
+  [theme.breakpoints.between('767', '769')]: {
+    minHeight: '0',
   },
 
   [theme.breakpoints.up('md')]: {
     width: '100%',
     gridColumn: '1/2',
     gridRow: '2/3',
+    minHeight: '20rem',
   },
 
   [theme.breakpoints.up('lg')]: {
+    minHeight: '21rem',
     margin: '4.625rem 0 .625rem 0',
     pl: 13,
   },

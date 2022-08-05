@@ -5,7 +5,10 @@ import React, { useState } from 'react';
 import HeadlineText from '../components/HeadlineText';
 import Layout from '../components/Layout';
 import TabPanel, { a11yProps } from '../components/TabPanel';
+import { motion } from 'framer-motion';
+import { shimmer, toBase64 } from '../utils/blurPlaceholder';
 import data from '../data.json';
+import { fadeInUpVariant } from '../utils/animations';
 
 export default function Technology() {
   const [value, setValue] = useState(0);
@@ -27,15 +30,34 @@ export default function Technology() {
           <Box sx={styledImageContainer}>
             {data.technology.map((data, index) => (
               <TabPanel key={data.name} value={value} index={index}>
-                <Image
-                  src={
-                    mediaDesktop ? data.images.portrait : data.images.landscape
-                  }
-                  alt={data.name}
-                  layout='fill'
-                  objectFit='cover'
-                  objectPosition='center'
-                />
+                <Box
+                  component={motion.div}
+                  key={data.name}
+                  variants={fadeInUpVariant}
+                  initial={mediaDesktop ? 'initial' : { opacity: 0 }}
+                  animate={'animate'}
+                  sx={[
+                    styledImageContainer,
+                    { ml: { lg: 0 }, '& img': { color: '#fff' } },
+                  ]}
+                >
+                  <Image
+                    src={
+                      mediaDesktop
+                        ? data.images.portrait
+                        : data.images.landscape
+                    }
+                    alt={data.name}
+                    layout='fill'
+                    objectFit='cover'
+                    objectPosition='center'
+                    priority
+                    placeholder='blur'
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      shimmer(700, 475)
+                    )}`}
+                  />
+                </Box>
               </TabPanel>
             ))}
           </Box>
@@ -58,7 +80,7 @@ export default function Technology() {
             ))}
           </Tabs>
 
-          <Box sx={styledTabContainer}>
+          <Box sx={styledTabDetailsContainer}>
             {data.technology.map((data, index) => (
               <TabPanel key={data.name} value={value} index={index}>
                 <Typography
@@ -260,13 +282,9 @@ const styledTabControl = (theme) => ({
   },
 });
 
-const styledTabContainer = (theme) => ({
-  // px: 3,
+const styledTabDetailsContainer = (theme) => ({
   width: 'min(100% - 3rem, 55ch)',
   mx: 'auto',
-
-  // [theme.breakpoints.up('sm')]: {
-  // },
 
   [theme.breakpoints.up('md')]: {
     gridColumn: '1/2',
@@ -275,6 +293,11 @@ const styledTabContainer = (theme) => ({
     width: '100%',
     mx: 0,
     px: 0,
+    minHeight: '22rem',
+  },
+
+  [theme.breakpoints.between('1024', '1124')]: {
+    minHeight: '19.85rem',
   },
 
   [theme.breakpoints.up('lg')]: {

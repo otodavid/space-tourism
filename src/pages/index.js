@@ -1,6 +1,9 @@
 import { Typography, Button } from '@mui/material';
 import Layout from '../components/Layout';
 import { Box } from '@mui/system';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { fadeInUpVariant } from '../utils/animations';
 
 export default function Home() {
   return (
@@ -15,7 +18,17 @@ export default function Home() {
           >
             so you want to travel to
           </Typography>
-          <Typography variant='h1' sx={{ my: 1.8, color: 'neutral.light' }}>
+          <Typography
+            variant='h1'
+            sx={{ my: 1.8, color: 'neutral.light' }}
+            component={motion.h1}
+            variants={fadeInUpVariant}
+            initial='initial'
+            animate={{
+              ...fadeInUpVariant.animate,
+              transition: { delay: 0.3, ease: 'easeOut', duration: '.6' },
+            }}
+          >
             space
           </Typography>
           <Typography
@@ -30,14 +43,17 @@ export default function Home() {
           </Typography>
         </Box>
         <Box sx={styledButtonWrapper}>
-          <Button
-            variant='contained'
-            sx={styledExploreButton}
-            disableRipple
-            disableElevation
-          >
-            <Typography sx={styledButtonText}>explore</Typography>
-          </Button>
+          <Link href='/destination' passHref>
+            <Button
+              variant='contained'
+              sx={styledExploreButton}
+              disableRipple
+              disableElevation
+              component='a'
+            >
+              <Typography sx={styledButtonText}>explore</Typography>
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Layout>
@@ -143,7 +159,7 @@ const styledExploreButton = (theme) => ({
     transition: 'all .4s ease',
   },
 
-  '&:hover::after': {
+  '&:hover::after, &.Mui-focusVisible::after': {
     transform: 'scale(1.4)',
 
     [theme.breakpoints.up('sm')]: {

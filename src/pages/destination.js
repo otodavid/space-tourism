@@ -8,6 +8,8 @@ import data from '../data.json';
 import CustomImage from '../components/CustomImage';
 import TabPanel, { a11yProps } from '../components/TabPanel';
 import HeadlineText from '../components/HeadlineText';
+import { motion } from 'framer-motion';
+import { fadeInUpVariant, growVariant } from '../utils/animations';
 
 export default function Destination() {
   const [value, setValue] = useState(0);
@@ -20,12 +22,16 @@ export default function Destination() {
     <Layout title='Destination' sx={styledLayout}>
       <Box sx={styledContainer}>
         <HeadlineText pageId='01' text='pick your destination' />
-
         <Grid container sx={styledGrid}>
           <Grid item xs={7} sm={6} md={5} lg={5}>
             {data.destinations.map((data, index) => (
               <TabPanel key={data.name} value={value} index={index}>
-                <Box>
+                <Box
+                  component={motion.div}
+                  initial='initial'
+                  animate='animate'
+                  variants={growVariant}
+                >
                   <CustomImage src={data.images.png} alt={data.name} />
                 </Box>
               </TabPanel>
@@ -153,6 +159,7 @@ const styledTabControlContainer = (theme) => ({
       ${theme.palette.neutral.light} 74%, 
       transparent 0)`,
     bottom: '4px',
+    height: '3px',
 
     [theme.breakpoints.up('sm')]: {
       background: `linear-gradient(to right, 
@@ -189,9 +196,27 @@ const styledTabControl = (theme) => ({
   letterSpacing: '2.36px',
   minWidth: '0',
   p: 1.5,
+  position: 'relative',
 
   [theme.breakpoints.up('sm')]: {
     fontSize: '1rem',
+  },
+
+  '&::after': {
+    content: '""',
+    position: 'absolute',
+    left: '.75rem',
+    bottom: '4px',
+    bgcolor: 'hsla(0, 100%, 100%, 0.5)',
+    width: '0',
+    height: '3px',
+    transition: 'all .3s ease',
+  },
+
+  '&:hover': {
+    '&::after': {
+      width: 'calc(100% - 1.5rem)',
+    },
   },
 
   '&.Mui-selected': {
