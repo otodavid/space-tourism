@@ -1,8 +1,8 @@
 import { List, ListItem, Typography, Button } from '@mui/material';
 import { Box } from '@mui/system';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ActiveLink from './ActiveLink';
+import Link from 'next/link';
 
 const Navbar = ({ closeDrawer }) => {
   const router = useRouter();
@@ -18,15 +18,14 @@ const Navbar = ({ closeDrawer }) => {
 
   return (
     <nav>
-      {/* <List sx={styledNav}>
-      <a>Test</a>
+      <List sx={styledNav}>
         {navItems.map((item, index) => (
           <ListItem key={item} sx={styledNavItem}>
-            <Link href={item === 'home' ? '/' : `/${item}`}>
+            <Link href={item === 'home' ? '/' : `/${item}`} passHref>
               <Box
                 component='a'
                 onClick={closeDrawer}
-                sx={[isActiveLink(item) ? styledActiveLink : styledHoveredLink]}
+                sx={isActiveLink(item) ? styledActiveLink : styledHoveredLink}
               >
                 <Typography variant='navText'>
                   <Box component='span' sx={styledNavNumber}>
@@ -36,32 +35,6 @@ const Navbar = ({ closeDrawer }) => {
                 </Typography>
               </Box>
             </Link>
-          </ListItem>
-        ))}
-      </List>
- */}
-
-      <List sx={styledNav}>
-        {navItems.map((item, index) => (
-          <ListItem key={item} sx={styledNavItem}>
-            <ActiveLink
-              href={item}
-              as={item === navItems[0] ? '/' : item}
-              passHref
-            >
-              <Box
-                component='a'
-                onClick={closeDrawer}
-                sx={[isActiveLink(item) ? styledActiveLink : styledHoveredLink]}
-              >
-                <Typography variant='navText'>
-                  <Box component='span' sx={styledNavNumber}>
-                    0{index}
-                  </Box>
-                  {item}
-                </Typography>
-              </Box>
-            </ActiveLink>
           </ListItem>
         ))}
       </List>
@@ -158,7 +131,7 @@ const styledHoveredLink = (theme) => ({
       transition: 'all .3s ease',
     },
   },
-  
+
   '&:hover::after': {
     width: 'calc(100% - 1rem)',
     bgcolor: theme.palette.neutral.main,

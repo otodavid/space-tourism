@@ -19,13 +19,14 @@ const Layout = ({ children, title, sx, description }) => {
           name='keywords'
           content='Space, exploration, moon, mars, travel'
         />
-        <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
 
-      <Container disableGutters maxWidth="xl" sx={[sx, styledDefaultLayout]}>
-        <Header />
+      <Container disableGutters maxWidth={false} sx={[sx, styledDefaultLayout]}>
+        <Container disableGutters maxWidth="xl">
+          <Header />
 
-        <Box component='main'>{children}</Box>
+          <Box component='main'>{children}</Box>
+        </Container>
       </Container>
     </Box>
   );
