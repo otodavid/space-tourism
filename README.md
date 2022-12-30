@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Space Tourism - Frontend Mentor Challenge
+This is a solution to a challenge from Frontend Mentors. The solution can be found on my page on [Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). The live site can be found here -  [Space Tourism](https://spacetour.vercel.app/).
 
-## Getting Started
+## Outline
+- [Overview](#overview)  
+- [Tools](#tools)
+- [Deployment](#deployment)
 
-First, run the development server:
+### Overview
+The task was to build a complete website using the design files provided. The space tourism website consists of four webpages in total. The data (text and images) to be used in each page were all provided by the designers. The original challenge and files related can be found [here](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Below is the developed preview for the website:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![image](https://user-images.githubusercontent.com/55490663/210116177-0815b5fe-a5bd-4594-97df-0880e905fed6.png 'Challenge Preview')
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Tools
+I used the following in developing this project:
+- Next.js
+- Material UI 
+- Framer motion
+- React responsive
+- Next progress
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Deployment
+This project was deployed on [Vercel](https://vercel.com). Vercel is a deployment platform from the creators of Next.js.
