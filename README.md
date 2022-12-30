@@ -1,5 +1,5 @@
 # Space Tourism - Frontend Mentor Challenge
-This is a solution to a challenge from Frontend Mentors. The solution can be found on my page on [Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). The live site can be found here -  [Space Tourism](https://spacetour.vercel.app/).
+This is a solution to a challenge from Frontend Mentors. The solution can be found on my profile on [Frontend Mentor](https://www.frontendmentor.io/solutions/space-tourism-multipage-website-ANTlWewaBe). The live site can be found here -  [Space Tourism](https://spacetour.vercel.app/).
 
 ## Outline
 - [Overview](#overview)  
